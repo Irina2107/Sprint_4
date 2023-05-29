@@ -5,9 +5,9 @@ import org.junit.Before;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import java.io.File;
-import static ru.praktikum.scooter.test.config.AppConfig.AppUrl;
+import static ru.praktikum.scooter.test.config.AppConfig.APP_URL;
 
-public class BaseTestScooterOrder {
+public class baseTestScooterOrder {
     WebDriver driver;
     @Before
     public void setUp() {
@@ -15,7 +15,7 @@ public class BaseTestScooterOrder {
                 .usingDriverExecutable(new File("C:/Users/IGladkova/projects/chromedriver/chromedriver"))
                 .build();
         driver = new ChromeDriver(service);
-        driver.get(AppUrl);
+        driver.get(APP_URL);
         //   driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
 

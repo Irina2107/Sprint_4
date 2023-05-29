@@ -1,4 +1,4 @@
-package ru.praktikum.scooter.test.pageobject;
+package ru.praktikum.scooter.test.page_object;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
