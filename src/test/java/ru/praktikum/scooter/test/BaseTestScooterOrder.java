@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriverService;
 import java.io.File;
 import static ru.praktikum.scooter.test.config.AppConfig.APP_URL;
 
-public class baseTestScooterOrder {
+public class BaseTestScooterOrder {
     WebDriver driver;
     @Before
     public void setUp() {

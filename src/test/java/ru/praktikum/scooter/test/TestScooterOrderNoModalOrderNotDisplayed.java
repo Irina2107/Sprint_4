@@ -4,22 +4,18 @@ import org.junit.Test;
 import ru.praktikum.scooter.test.page_object.MainPage;
 import ru.praktikum.scooter.test.page_object.PageOrderAboutRent;
 import ru.praktikum.scooter.test.page_object.PageOrderForWhom;
-import ru.praktikum.scooter.test.page_object.PageStatusOrder;
 
-
-public class testScooterOrderYesModalOrderDisplayed extends baseTestScooterOrder {
+public class TestScooterOrderNoModalOrderNotDisplayed extends BaseTestScooterOrder {
     MainPage mainPage;
     PageOrderForWhom pageOrderForWhom;
     PageOrderAboutRent pageOrderAboutRent;
-    PageStatusOrder pageStatusOrder;
     String namePerson = "Ира";
     String SurnamePerson = "Гладкова";
     String AdressPerson = "Санкт-Петербург, Павлова 3";
     String PhoneNumber = "+79650084939";
     String OrderCommentText = "После 22:00";
     @Test
-    //throws Exception
-    public void orderButtonUpOrderCreate()  {
+        public void OrderButtonUpOrderNotCreated()  {
         mainPage = new MainPage(driver);
         //Согласиться с куками
         mainPage.clickAgreeToCook();
@@ -48,19 +44,18 @@ public class testScooterOrderYesModalOrderDisplayed extends baseTestScooterOrder
         pageOrderAboutRent.clickScooterColorSet();
         pageOrderAboutRent.fillOrderComment(OrderCommentText);
         pageOrderAboutRent.clickOrderButton();
-        mainPage.clickConfirmOrderYes();
-        pageStatusOrder = new PageStatusOrder(driver);
-        pageStatusOrder.checkDisplayModalStatusOrder();
-
+      // Для No, проверить, что открылось окно "Про аренду"
+        mainPage.clickConfirmOrderNo();
+       pageOrderAboutRent.checkDisplayedAboutRent();
     }
 
+
     @Test
-    //throws Exception
-    public void orderButtonDownOrderCreate()  {
+    public void OrderButtonDownOrderNotCreated()  {
         mainPage = new MainPage(driver);
         //Согласиться с куками
         mainPage.clickAgreeToCook();
-        //Нажать на кнопку "Заказать" вверху страницы
+        //Нажать на кнопку "Заказать" внизу страницы
         mainPage.clickDownOrderButton();
         //Проверить, что открылась страница AppUrl/order "Для кого самокат"
         pageOrderForWhom = new PageOrderForWhom(driver);
@@ -85,13 +80,11 @@ public class testScooterOrderYesModalOrderDisplayed extends baseTestScooterOrder
         pageOrderAboutRent.clickScooterColorSet();
         pageOrderAboutRent.fillOrderComment(OrderCommentText);
         pageOrderAboutRent.clickOrderButton();
-        mainPage.clickConfirmOrderYes();
-        pageStatusOrder = new PageStatusOrder(driver);
-        pageStatusOrder.checkDisplayModalStatusOrder();
-
+        // Для No, проверить, что открылось окно "Про аренду"
+        mainPage.clickConfirmOrderNo();
+        pageOrderAboutRent.checkDisplayedAboutRent();
     }
-
-
 }
+
 
 
